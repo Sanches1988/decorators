@@ -2,7 +2,7 @@ from datetime import datetime as dt
 import requests
 
 
-def get_log(func):
+def log(func):
     def foo(*args, **kwargs):
         date_time = dt.now()
         func_name = func.__name__
@@ -15,7 +15,7 @@ def get_log(func):
         return result
     return foo
 
-@get_log
+@log
 def get_status(*args, **kwargs):
     url = ','.join(args)
     response = requests.get(url=url)

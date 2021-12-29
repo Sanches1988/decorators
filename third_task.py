@@ -6,7 +6,7 @@ nested_list = [
 	[1, 2, None],
 ]
 
-def get_log(func):
+def log(func):
     def foo(*args, **kwargs):
         date_time = dt.now()
         func_name = func.__name__
@@ -20,7 +20,7 @@ def get_log(func):
     return foo
 
 
-@get_log
+@log
 def generator(nested_list):
     for i in nested_list:
         for y in i:

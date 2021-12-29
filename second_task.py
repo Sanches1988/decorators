@@ -2,7 +2,7 @@ from datetime import datetime as dt
 import requests
 FILE_PATH = 'logs.txt'
 
-def get_log(path):
+def log(path):
     def decor(func):
         def foo(*args, **kwargs):
             date_time = dt.now()
@@ -18,7 +18,7 @@ def get_log(path):
     return decor
 
 
-@get_log(FILE_PATH)
+@log(FILE_PATH)
 def get_status(*args, **kwargs):
     url = ','.join(args)
     response = requests.get(url=url)
